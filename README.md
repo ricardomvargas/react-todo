@@ -1,13 +1,17 @@
-# Webpack Boilerplate (in development)
+# React-TODO (in development)
 
 ## About The Project
 
-Base web project to create applications with webpack and React.
+Simple React + context app
+
+## What's need to be done
+
+- Finishing styling
+- Implementing unit test
 
 ### Built With
 
 - [React.js] (https://reactjs.org/)
-- [React Router] (https://reactrouter.com/)
 - [Typescript] (https://www.typescriptlang.org/)
 - [webpack] (https://webpack.js.org/)
 - [jest] (https://jestjs.io/)
@@ -19,4 +23,4 @@ Base web project to create applications with webpack and React.
 
 - Install dependecies: npm install
 - Execute the project: npm run dev (it runs on port 3000)
-- Execute tests: npm run test
+- Execute tests: npm run test (still no test implemented)
