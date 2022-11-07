@@ -8,6 +8,7 @@ Simple React + context app
 
 - Finishing styling
 - Implementing unit test
+- drag and drop items between lists
 
 ### Built With
 
