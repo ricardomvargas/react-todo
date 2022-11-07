@@ -1,0 +1,14 @@
+.todo-block-container {
+  display: flex;
+}
+
+.todo-block-item {
+  width: 100%;
+  border: solid 1px #000;
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+
+.todo-form {
+  margin-bottom: 30px;
+}
