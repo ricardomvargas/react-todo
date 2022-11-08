@@ -2,7 +2,7 @@
 
 ## About The Project
 
-Simple React + context app
+Simple React app with react-context
 
 ## What's need to be done
 
