@@ -93,18 +93,18 @@ const toDoReducer = (state: State, action: Action) => {
   }
 };
 
-function ToDoProvider({ children }: ToDoProviderProps) {
+const ToDoProvider = ({ children }: ToDoProviderProps) => {
   const [state, dispatch] = React.useReducer(toDoReducer, { todo: [], doing: [], done: [] });
   const value = { state, dispatch };
   return <ToDoStateContext.Provider value={value}>{children}</ToDoStateContext.Provider>;
-}
+};
 
-function useToDo() {
+const useToDo = () => {
   const context = React.useContext(ToDoStateContext);
   if (context === undefined) {
     throw new Error('useToDo must be used within a ToDoProvider');
   }
   return context;
-}
+};
 
 export { ToDoProvider, useToDo };
