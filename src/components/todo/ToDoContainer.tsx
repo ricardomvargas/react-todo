@@ -11,10 +11,9 @@ const ToDoComponent = () => {
   const { state } = useToDo();
 
   return (
-    <article>
-      <h1>My Tasks</h1>
+    <article className='todo-container'>
       <ToDoForm />
-      <div className='todo-block-container'>
+      <div className='todo-container-blocks'>
         <ToDoBlock
           title='TO-DO'
           tasks={state.todo}
