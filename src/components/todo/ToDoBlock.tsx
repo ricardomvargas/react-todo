@@ -27,25 +27,41 @@ const ToDoBlock: React.FC<ToDoBlockProps> = ({
   return (
     <section className='todo-block-item'>
       <h2>{title}</h2>
+      <hr />
       {tasks.length > 0 ? (
         <ul>
           {tasks.map((task) => (
             <li key={task.id}>
               {moveBackward && (
-                <button onClick={() => handleMovingTask(task, moveBackward)}>back</button>
+                <img
+                  src='/assets/images/left_icon.svg'
+                  alt='foward'
+                  title='foward'
+                  onClick={() => handleMovingTask(task, moveBackward)}
+                />
               )}
-              {task.description}
+              <p>{task.description}</p>
               {moveFoward && (
-                <button onClick={() => handleMovingTask(task, moveFoward)}>foward</button>
+                <img
+                  src='/assets/images/right_icon.svg'
+                  alt='foward'
+                  title='foward'
+                  onClick={() => handleMovingTask(task, moveFoward)}
+                />
               )}
               {enableDelete && (
-                <button onClick={() => handleDeleteTask(task, enableDelete.from)}>del</button>
+                <img
+                  src='/assets/images/bin_remove_icon.svg'
+                  alt='delete'
+                  title='delete'
+                  onClick={() => handleDeleteTask(task, enableDelete.from)}
+                />
               )}
             </li>
           ))}
         </ul>
       ) : (
-        <div>No tasks</div>
+        <div className='no-task'>No tasks</div>
       )}
     </section>
   );
