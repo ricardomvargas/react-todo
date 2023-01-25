@@ -35,8 +35,8 @@ const ToDoBlock: React.FC<ToDoBlockProps> = ({
               {moveBackward && (
                 <img
                   src='/assets/images/left_icon.svg'
-                  alt='foward'
-                  title='foward'
+                  alt='back'
+                  title='move back'
                   onClick={() => handleMovingTask(task, moveBackward)}
                 />
               )}
@@ -45,7 +45,7 @@ const ToDoBlock: React.FC<ToDoBlockProps> = ({
                 <img
                   src='/assets/images/right_icon.svg'
                   alt='foward'
-                  title='foward'
+                  title='move foward'
                   onClick={() => handleMovingTask(task, moveFoward)}
                 />
               )}

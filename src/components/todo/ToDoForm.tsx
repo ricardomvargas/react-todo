@@ -45,8 +45,9 @@ const ToDoForm = () => {
         name='new-task'
         value={newTaskValue}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewTaskValue(e.target.value)}
+        placeholder='Task name'
       />
-      <button onClick={handleAddTask}>ADD TASK</button>
+      <button onClick={handleAddTask}>CREATE</button>
       <div>{validationMessage}</div>
     </div>
   );

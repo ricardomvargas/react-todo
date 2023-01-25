@@ -37,10 +37,12 @@
 
 .todo-block-item .no-task {
   text-align: center;
+  color: #7a7a7a;
 }
 
 .todo-block-item li img {
   width: 20px;
+  cursor: pointer;
 }
 
 .todo-block-item li img:last-child {
@@ -60,6 +62,7 @@
 .todo-form input {
   border: solid 1px #ccc;
   padding: 4px;
+  width: 200px;
 }
 
 .todo-form button {
@@ -87,5 +90,9 @@
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
+  }
+
+  .todo-form input {
+    width: 50%;
   }
 }
