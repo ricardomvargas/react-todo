@@ -52,7 +52,7 @@ const toDoReducer = (state: State, action: Action) => {
   switch (type) {
     case 'new-task': {
       const newTodoList = state.todo;
-      newTodoList.push(payload.task);
+      newTodoList.push(payload);
       return { ...state, todo: newTodoList };
     }
     case 'delete-task': {
@@ -90,11 +90,19 @@ const toDoReducer = (state: State, action: Action) => {
 
       return { ...newState };
     }
+    case 'set-selected-task': {
+      return { ...state, selectedTask: payload };
+    }
   }
 };
 
 const ToDoProvider = ({ children }: ToDoProviderProps) => {
-  const [state, dispatch] = React.useReducer(toDoReducer, { todo: [], doing: [], done: [] });
+  const [state, dispatch] = React.useReducer(toDoReducer, {
+    todo: [],
+    doing: [],
+    done: [],
+    selectedTask: undefined,
+  });
   const value = { state, dispatch };
   return <ToDoStateContext.Provider value={value}>{children}</ToDoStateContext.Provider>;
 };

@@ -28,7 +28,7 @@ const ToDoForm = () => {
         description: newTaskValue,
       };
 
-      dispatch({ type: 'new-task', payload: { task: newTask } });
+      dispatch({ type: 'new-task', payload: newTask });
       setNewTaskValue('');
       setValidationMessage('');
     } else if (newTaskValue.length >= 250) {
