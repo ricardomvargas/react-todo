@@ -16,18 +16,25 @@ const ToDoComponent = () => {
       <div className='todo-container-blocks'>
         <ToDoBlock
           title='TO-DO'
+          blockCollum='todo'
           tasks={state.todo}
           enableDelete={{ from: 'todo' }}
           moveFoward={{ from: 'todo', to: 'doing' }}
         />
         <ToDoBlock
           title='DOING'
+          blockCollum='doing'
           tasks={state.doing}
           enableDelete={{ from: 'doing' }}
           moveFoward={{ from: 'doing', to: 'done' }}
           moveBackward={{ from: 'doing', to: 'todo' }}
         />
-        <ToDoBlock title='DONE' tasks={state.done} enableDelete={{ from: 'done' }} />
+        <ToDoBlock
+          title='DONE'
+          blockCollum='done'
+          tasks={state.done}
+          enableDelete={{ from: 'done' }}
+        />
       </div>
     </article>
   );

@@ -9,11 +9,12 @@ import { ToDoBlockProps } from './ToDoTypes';
 const ToDoBlock: React.FC<ToDoBlockProps> = ({
   title,
   tasks,
+  blockCollum,
   enableDelete,
   moveFoward,
   moveBackward,
 }) => {
-  const { dispatch } = useToDo();
+  const { dispatch, state } = useToDo();
 
   const handleMovingTask = (task: Task, direction: { from: Collums; to: Collums }) =>
     dispatch({
@@ -24,14 +25,36 @@ const ToDoBlock: React.FC<ToDoBlockProps> = ({
   const handleDeleteTask = (task: Task, from: Collums) =>
     dispatch({ type: 'delete-task', payload: { id: task.id, from: from } });
 
+  const handleDragStart = (task: Task) =>
+    dispatch({ type: 'set-selected-task', payload: { origin: blockCollum, task: task } });
+
+  const handleOnDrop = () => {
+    const { selectedTask } = state;
+    if (selectedTask && selectedTask?.origin !== blockCollum) {
+      dispatch({
+        type: 'move-task',
+        payload: { id: selectedTask.task.id, from: selectedTask.origin, to: blockCollum },
+      });
+    }
+  };
+
+  const handleOnDragEnter = (e: React.DragEvent<HTMLElement>) => e.preventDefault();
+
+  const handleOnDragOver = (e: React.DragEvent<HTMLElement>) => e.preventDefault();
+
   return (
-    <section className='todo-block-item'>
+    <section
+      className='todo-block-item'
+      onDragEnter={handleOnDragEnter}
+      onDragOver={handleOnDragOver}
+      onDrop={(_e) => handleOnDrop()}
+    >
       <h2>{title}</h2>
       <hr />
       {tasks.length > 0 ? (
         <ul>
           {tasks.map((task) => (
-            <li key={task.id}>
+            <li draggable onDragStart={(_e) => handleDragStart(task)} key={task.id}>
               {moveBackward && (
                 <img
                   src='/assets/images/left_icon.svg'

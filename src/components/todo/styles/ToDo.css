@@ -33,6 +33,7 @@
   margin-bottom: 7px;
   display: flex;
   align-items: center;
+  cursor: grab;
 }
 
 .todo-block-item .no-task {
