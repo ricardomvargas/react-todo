@@ -7,21 +7,14 @@ const ToDoStateContext = React.createContext<{ state: State; dispatch: Dispatch 
 );
 
 const removeTaskFromList = (from: Collums, id: string, state: State) => {
-  const newState = state;
-
   switch (from) {
     case 'todo':
-      newState.todo = state.todo.filter((task) => task.id !== id);
-      break;
+      return { ...state, todo: state.todo.filter((task) => task.id !== id) };
     case 'doing':
-      newState.doing = state.doing.filter((task) => task.id !== id);
-      break;
+      return { ...state, doing: state.doing.filter((task) => task.id !== id) };
     case 'done':
-      newState.done = state.done.filter((task) => task.id !== id);
-      break;
+      return { ...state, done: state.done.filter((task) => task.id !== id) };
   }
-
-  return newState;
 };
 
 const getListWithoutTask = (from: Collums, id: string, state: State) => {
@@ -51,9 +44,7 @@ const toDoReducer = (state: State, action: Action) => {
 
   switch (type) {
     case 'new-task': {
-      const newTodoList = state.todo;
-      newTodoList.push(payload);
-      return { ...state, todo: newTodoList };
+      return { ...state, todo: [...state.todo, payload] };
     }
     case 'delete-task': {
       const newState = removeTaskFromList(action.payload.from, action.payload.id, state);
