@@ -1,14 +1,8 @@
-# React-TODO (in development)
+# React-TODO
 
 ## About The Project
 
 Simple React app with react-context
-
-## What's need to be done
-
-- Finishing styling
-- Implementing unit test
-- Error handling
 
 ### Built With
 
